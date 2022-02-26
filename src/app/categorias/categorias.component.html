@@ -1,0 +1,19 @@
+Categorias
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id de Categoria</th>
+        <th scope="col">Descripcion</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr (click)="onSelect(c)" *ngFor="let c of Icategoria">
+        <td>{{c.id_categoria}}</td>
+        <td>{{c.descripcion}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <td><button type="button" class="btn btn-danger" (click)="logout()">Salir de la sesion</button></td>
+

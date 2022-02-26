@@ -1,0 +1,64 @@
+Productos
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id de Producto</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Id de Categoria</th>
+      <th scope="col">precio</th>
+      <th scope="col">stock</th>
+      <th scope="col">Carrito</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let p of Iproducto let i =index">
+      <td>{{i + 1}}</td>
+      <td>{{p.id_producto}}</td>
+      <td>{{p.descripcion}}</td>
+      <td>{{p.id_categoria}}</td>
+      <td>{{p.precio}}</td>
+      <td>{{p.stock}}</td>
+      <td><button type="button" class="btn btn-danger" (click)="add(i)">Añadir Carrito</button></td>
+      
+    </tr>
+  </tbody>
+</table>
+
+
+<button type="button" class="btn btn-danger" (click)="ocultar()">Ocultar/Desocultar</button><br>
+<h6 *ngIf="visible">
+
+  <h5>Carrito de la compra</h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id de Producto</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">cantidad</th>
+        <th scope="col">precio</th>
+        <th scope="col">X</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let pr of carrito let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{pr.descripcion}}</td>
+        <td>{{pr.cantidad}}</td>
+        <td>{{pr.precio}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="del(i)">eliminar</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>total:</td>
+        <td>{{total()}}</td>
+     
+      </tr>
+    </tbody>
+  </table>
+</h6>
+
