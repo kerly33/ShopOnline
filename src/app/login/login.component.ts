@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.mensajeLogin = this.loginser.get_mensajico();
   }
 
   public formulario_usuario = new FormGroup({
@@ -36,35 +37,27 @@ export class LoginComponent implements OnInit {
   login(){
     this.initial= false;
     if(this.formulario_usuario.valid){
-      this.initial= true;
-    }
-    let login: Login = new Login(
-      this.formulario_usuario.get("usuario")?.value,
-      this.formulario_usuario.get("password")?.value,
-    )
-    
-    if(this.formulario_usuario.valid) {
-      //subo el carrito y el usuario a la nube cuando inicio
-      sessionStorage.setItem('carrito', JSON.stringify(this.carrito));
-      sessionStorage.setItem('Registro', JSON.stringify(login));
-      sessionStorage.setItem('usu_logueado', JSON.stringify( this.formulario_usuario.get("usuario")?.value));
-      
-      this.loginser.set_islogueado(true);
-      this.router.navigate(['/categorias']);
+      this.loginser.login(new Usuario(
+        this.formulario_usuario.get('usuario')?.value,
+        this.formulario_usuario.get('password')?.value, '')).subscribe(codigo => {
+          if(codigo == 0) {
+            //subo el carrito y el usuario a la nube cuando inicio
+            sessionStorage.setItem('carrito', JSON.stringify(this.carrito));
+            sessionStorage.setItem('usu_logueado', JSON.stringify( this.formulario_usuario.get("usuario")?.value));
+            
+            this.loginser.set_islogueado(true);
+            this.loginser.set_usuario(this.formulario_usuario.get('usuario')?.value);
+            this.router.navigate(['/categorias']);
+          } 
+          if (codigo == 1) {
+            this.mensajeLogin ="ese usuario no existe";
+          } 
+          if(codigo == 2) {
+            this.mensajeLogin = "error en la password";
+          }
 
-      this.loginser.login(login).subscribe(mensaje => {
-        if(mensaje == 0) {
-          
-          this.router.navigate(['/categorias']);
-          
-        }
-        if (mensaje == 1) {
-          this.mensajeLogin ="ese usuario no existe";
-        }        
-        if(mensaje == 2) {
-          this.mensajeLogin = "error en la password";
-        }
-      })
+        });
+      this.initial= true;
     }
   }
 

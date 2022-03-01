@@ -88,7 +88,7 @@ export class ProductosComponent implements OnInit {
     let cabfactura: CabFactura = new CabFactura(usu_logueado);
     this.factservice.add_CabFactura(cabfactura).subscribe(id_factura =>{
       this.id_factura = id_factura;
-      //console.log(id_factura)
+      console.log(id_factura)
      for(let c= 0; c < this.carrito.length ; c++) {
        let posfactura: PosFactura = new PosFactura(this.id_factura, this.carrito[c].id_producto, this.cantidad);
        this.factservice.add_PosFactura(posfactura).subscribe(retorno => {console.log(retorno)});

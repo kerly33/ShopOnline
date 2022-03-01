@@ -9,7 +9,7 @@ import { RegistrarComponent } from './registrar/registrar.component';
 const routes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'categorias', component: CategoriasComponent, canActivate: [LoginGuard] },
-  {path: 'productos/:id_categoria', component: ProductosComponent },
+  {path: 'productos/:id_categoria', component: ProductosComponent, canActivate: [LoginGuard] },
   {path: 'registrar', component: RegistrarComponent },
 ];
 

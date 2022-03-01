@@ -13,6 +13,9 @@ export class LoginService {
   public Login: Login[] = new Array();
   public usu_existe: boolean = false;
   private islogueado: boolean = false;
+  private usuario: string = "";
+  private mensajico: string = "";
+
   
   constructor(private http: HttpClient) { }
 
@@ -26,12 +29,30 @@ export class LoginService {
     return this.http.post<number>(this.url_reg, registro);
   }
 
-  get_islogueado(){
+  get_islogueado() {
     return this.islogueado;
   }
 
-  set_islogueado(islogueado: boolean){
+  set_islogueado(islogueado: boolean) {
     this.islogueado = islogueado;
   }
+
+
+  get_usuario() {
+    return this.usuario;
+  }
+
+  set_usuario(usuario: string) {
+    this.usuario = usuario;
+  }
+
+  get_mensajico() {
+    return this.mensajico;
+  }
+
+  set_mensajico(mensajico: string){
+    this.mensajico = mensajico;
+  }
+
 
 }
