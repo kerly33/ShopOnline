@@ -32,6 +32,7 @@ export class RegistrarComponent implements OnInit {
 
   gestion_registro(){
      this.initial = false;
+     console.log(this.formulario_registro);
      if(this.formulario_registro.valid) {
        if(this.formulario_registro.get('password')?.value == this.formulario_registro.get('password2')?.value){
        let User: Usuario = new Usuario(
@@ -39,10 +40,12 @@ export class RegistrarComponent implements OnInit {
          this.formulario_registro.get('password')?.value,
          this.formulario_registro.get('email')?.value);
           this.regUser.push(User)
-
+        console.log("e")
         this.loginser.Registro(User).subscribe(mensaje => {
           if(mensaje == 0) {
             this.mensajeRegistro = "usuario añadido";
+            sessionStorage.setItem("usuario_registro", JSON.stringify(User.usuario));
+            this.router.navigate(['/login'])
           } 
           else 
           if (mensaje == 1) {

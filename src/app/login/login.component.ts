@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
       //subo el carrito y el usuario a la nube cuando inicio
       sessionStorage.setItem('carrito', JSON.stringify(this.carrito));
       sessionStorage.setItem('Registro', JSON.stringify(login));
+      sessionStorage.setItem('usu_logueado', JSON.stringify( this.formulario_usuario.get("usuario")?.value));
+      
+      this.loginser.set_islogueado(true);
+      this.router.navigate(['/categorias']);
 
       this.loginser.login(login).subscribe(mensaje => {
         if(mensaje == 0) {

@@ -1,3 +1,4 @@
+<body>
 <h1>Anuncios</h1>
 <form [formGroup]="formulario_registro" (ngSubmit)="gestion_registro()">
     
@@ -29,12 +30,12 @@
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Repita contraseña</label>
         <div class="col-sm-4">
-            <input type="password" formControlName="password" class="form-control" placeholder="password">
+            <input type="password2" formControlName="password2" class="form-control" placeholder="password2">
             <label class="text-danger form-text" *ngIf="formulario_registro.get('password')?.invalid && !initial">
-                <div *ngIf="formulario_registro.get('password')?.hasError('required') ">
+                <div *ngIf="formulario_registro.get('password2')?.hasError('required') ">
                     rellene el precio
                 </div>
-                <div *ngIf="formulario_registro.get('password')?.hasError('minlength')">
+                <div *ngIf="formulario_registro.get('password2')?.hasError('minlength')">
                     rellene minimo 8 posiciones
                 </div>
             </label>
@@ -65,4 +66,6 @@
       </div>
   </form>
   {{mensajeRegistro}}<br>
+
+</body>
     

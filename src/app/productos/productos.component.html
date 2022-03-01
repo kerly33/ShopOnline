@@ -21,7 +21,7 @@ Productos
       <td>{{p.id_categoria}}</td>
       <td>{{p.precio}}</td>
       <td>{{p.stock}}</td>
-      <td><button type="button" class="btn btn-danger" (click)="add(i)">Añadir Carrito</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="add(i)"><img src="https://img.icons8.com/ios-glyphs/30/000000/buy--v1.png"/>Añadir Carrito</button></td>
       
     </tr>
   </tbody>
@@ -60,5 +60,8 @@ Productos
       </tr>
     </tbody>
   </table>
+  
 </h6>
+<br>
+<button type="button" class="btn btn-danger" (click)="comprar()">comprar</button>
 
