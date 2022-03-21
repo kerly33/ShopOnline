@@ -21,7 +21,7 @@ Productos
       <td>{{p.id_categoria}}</td>
       <td>{{p.precio}}</td>
       <td>{{p.stock}}</td>
-      <td><button type="button" class="btn btn-danger" (click)="add(i)"><img src="https://img.icons8.com/ios-glyphs/30/000000/buy--v1.png"/>Añadir Carrito</button></td>
+      <td><!--<button type="button" class="btn btn-danger" (click)="add(i)">Añadir Carrito</button>--><a (click)="add(i)"><img src="https://img.icons8.com/carbon-copy/1/000000/buy--v2.gif"/></a></td>
       
     </tr>
   </tbody>
@@ -65,3 +65,13 @@ Productos
 <br>
 <button type="button" class="btn btn-danger" (click)="comprar()">comprar</button>
 
+<div *ngIf="visible2">
+<div class="window-notice" id="window-notice">
+  <div class="content">
+      <div class="content-text">Gracias por su compra, le hemos enviado el email a su correo
+      <!--<a href="#">Leer más.</a></div>-->
+      <div class="content-buttons"><a (click)="comprarmas()" id="close-button">Seguir comprando</a></div>
+      <div class="content-buttons"><a (click)="logout()" id="close-button">Cerrar sesion</a></div>
+    </div>
+</div>
+</div>

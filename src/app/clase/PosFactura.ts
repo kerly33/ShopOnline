@@ -4,4 +4,6 @@ export class PosFactura {
         public id_producto: number,
         public cantidad: number,
     ){   }
-} //tiendacapgemini@gmail.com Womanbootcamp   
+}
+//tiendacapgemini@gmail.com Womanbootcamp    ng serve --host 0.0.0.0 --port 4200 
+//Y luego en el explorador poneis la ip de la persona y detrás el puerto 4200 en ese caso

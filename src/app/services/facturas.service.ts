@@ -12,7 +12,10 @@ export class FacturasService {
   url_postf: string = "http://localhost:8099/addposfactura";
   url_correo: string = "http://localhost:8099/sendemail/";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
+    
   public cabFactura: CabFactura[] = new Array;
 
   add_CabFactura(cab_factura: CabFactura): Observable <number> {
